@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PYFILE = "$PYFILE";
+
 if test -f "$PYFILE"; then
 	python3 "$PYFILE"
 else
