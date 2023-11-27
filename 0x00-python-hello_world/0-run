@@ -1,2 +1,2 @@
 #!/bin/bash
-test -f "$PYFILE" && python3 "$PYFILE"
+[ -f "$PYFILE" ] && python3 "$PYFILE"
