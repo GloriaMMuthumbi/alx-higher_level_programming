@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print(''.join(chr(character) for character in range(97, 123)), end='')
+for char in range(97, 123):
+    print("{:c}".format(char), end='')
