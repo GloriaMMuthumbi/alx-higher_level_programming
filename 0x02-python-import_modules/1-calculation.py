@@ -4,12 +4,8 @@ if __name__ == "__main__":
 
     a = 10
     b = 5
-    add_res = add(a, b)
-    mul_res = mul(a, b)
-    sub_res = sub(a, b)
-    div_res = div(a, b)
-
-    print("{} + {} = {}".format(a, b, add_res))
-    print("{} * {} = {}".format(a, b, mul_res))
-    print("{} - {} = {}".format(a, b, sub_res))
-    print("{} / {} = {}".format(a, b, div_res))
+    
+    print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
+    print("{:d} * {:d} = {:d}".format(a, b, mul(a, b)))
+    print("{:d} - {:d} = {:d}".format(a, b, sub(a, b)))
+    print("{:d} / {:d} = {:d}".format(a, b, div(a, b)))
