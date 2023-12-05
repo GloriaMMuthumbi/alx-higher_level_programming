@@ -7,40 +7,54 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *slow, *fast;
-	listint_t *prev_slow = NULL;
-	listint_t *temp;
-	int is_palindrome = 1;
+	listint_t *temp, *reversed, *mid;
+	size_t size = 0, i;
 
-	if ((*head)->next == NULL || *head == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	while (fast != NULL && fast->next != NULL)
+	temp = *head;
+	while (temp)
 	{
-		fast = fast->next->next;
-		temp = slow;
-		slow = slow->next;
-		temp->next = prev_slow;
-		prev_slow = temp;
+		size++;
+		temp = temp->next;
 	}
-	if (fast != NULL)
-		slow = slow->next;
-	while (slow != NULL)
+	temp = *head;
+	for (i = 0; i < (size / 2) - 1; i++)
+		temp = temp->next;
+	if ((size % 2) == 0 && temp->n != temp->next->n)
+		return (0);
+	temp = temp->next->next;
+	reversed = reverse_list(&temp);
+	mid = reversed;
+	temp = *head;
+	while (reversed != NULL)
 	{
-		if (slow->n != prev_slow->n)
-		{
-			is_palindrome = 0;
-			break;
-		}
-		slow = slow->next;
-		prev_slow = prev_slow->next;
+		if (temp->n != reversed->n)
+			return (0);
+		temp = temp->next;
+		reversed = reversed->next;
 	}
-	while (temp != NULL)
+	reverse_list(&mid);
+	return (1);
+}
+
+/**
+ * reverse_list - reverses the list
+ * @head: pointer to pointer of head of list
+ * Return: returns pointer to head of new list
+ */
+listint_t *reverse_list(listint_t **head)
+{
+	listint_t *current = *head;
+	listint_t *next_node, *prev_node = NULL;
+
+	while (current != NULL)
 	{
-		slow = temp->next;
-		temp->next = prev_slow;
-		prev_slow = temp;
-		temp = slow;
+		next_node = current->next;
+		current->next = prev_node;
+		prev_node = current;
+		current = next_node;
 	}
-	*head = prev_slow;
-	return (is_palindrome);
+	*head = prev_node;
+	return (*head);
 }
