@@ -137,3 +137,13 @@ You are not allowed to import any module
 You have to use map
 You are not allowed to use for or while
 Your file should be max 3 lines
+
+15. Delete by value
+#advanced
+Write a function that deletes keys with a specific value in a dictionary.
+
+Prototype: def complex_delete(a_dictionary, value):
+If the value doesn’t exist, the dictionary won’t change
+All keys having the searched value have to be deleted
+You are not allowed to import any module
+
