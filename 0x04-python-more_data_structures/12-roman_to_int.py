@@ -9,7 +9,7 @@ def roman_to_int(roman_string):
     for c in range(length - 1, 0, -1):
         value = roman_dic[roman_string[c]]
         prev = roman_dic[roman_string[c-1]]
-        if value < prev:
+        if prev < value:
             result -= prev
         else:
             result += prev
