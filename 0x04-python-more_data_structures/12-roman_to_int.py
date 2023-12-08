@@ -6,8 +6,8 @@ def roman_to_int(roman_string):
                  'C': 100, 'D': 500, 'M': 1000}
     result = 0
     prev = 0
-    for c in reversed(roman_string):
-        value = roman_dic[c]
+    for c in range(len(roman_string) -1, 0, -1):
+        value = roman_dic[roman_string[c]]
         if value < prev:
             result -= value
         else:
