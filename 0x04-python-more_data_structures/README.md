@@ -113,7 +113,13 @@ You are not allowed to import any module
 You have to use map
 Your file should be max 3 lines
 
+Create a function def roman_to_int(roman_string): that converts a Roman numeral to an integer.
 
+12. Roman to Integer
+mandatory
+You can assume the number will be between 1 to 3999.
+def roman_to_int(roman_string) must return an integer
+If the roman_string is not a string or None, return 0
 
 13. Weighted average!
 #advanced
