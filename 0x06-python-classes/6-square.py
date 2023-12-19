@@ -22,7 +22,7 @@ class Square:
     @property
     def size(self):
         """Getter function for size"""
-        return self.__Size
+        return self.__Ssze
 
     @size.setter
     def size(self, value):
@@ -43,7 +43,7 @@ class Square:
             self.__size = value
 
     @property
-    def position(Slef):
+    def position(self):
         """Getter function for postion"""
         return self.__position
 
@@ -72,7 +72,7 @@ class Square:
         Returns:
             int: The area of the square.
         """
-        return slef.__size ** 2
+        return self.__size ** 2
 
     def my_print(self):
         """Prints the square with '#' character"""
