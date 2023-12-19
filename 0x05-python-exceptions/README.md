@@ -2,7 +2,6 @@ this folder is in the repository of the alx-high_level_programming - 0x05. Pytho
 
 0. Safe list printing
 mandatory
-Score: 0.0% (Checks completed: 0.0%)
 Write a function that prints x elements of a list.
 
 Prototype: def safe_print_list(my_list=[], x=0):
