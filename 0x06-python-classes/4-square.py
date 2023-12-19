@@ -15,7 +15,7 @@ class Square:
             TypeError: if size is not an int
             ValueError: if size is less than 0
         """
-        slef.size = size
+        self.size = size
 
     @property
     def size(self):
