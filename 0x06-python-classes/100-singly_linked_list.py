@@ -3,7 +3,6 @@
 class Node:
     """Defines node of singly linked list."""
 
-
     def __init__(self, data, next_node=Node):
         """Initializes Node instance.
 
@@ -70,7 +69,7 @@ class Node:
             new_node = Node(value)
 
             if self.head is None or value < self.head.data:
-                new_node.next_node =  self.head
+                new_node.next_node = self.head
                 self.head = new_node
             else:
                 current = self.head
@@ -80,3 +79,11 @@ class Node:
                 new_node.next_node = current.next_node
                 current.next_node = new_node
 
+        def __str__(self):
+            """String representation of linked list."""
+            result = ""
+            current = self.head
+            while current is not None:
+                result += str(curren.data) + "\n"
+                current = current.next_node
+            return result
