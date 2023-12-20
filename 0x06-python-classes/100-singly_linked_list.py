@@ -3,7 +3,7 @@
 class Node:
     """Defines node of singly linked list."""
 
-    def __init__(self, data, next_node=Node):
+    def __init__(self, data, next_node=None):
         """Initializes Node instance.
 
         Args:
@@ -34,9 +34,9 @@ class Node:
             self.__data = value
 
     @property
-    def nex_node(self):
+    def next_node(self):
         """Getter for the next node."""
-        return slef.__next_node
+        return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
@@ -53,36 +53,36 @@ class Node:
         else:
             self.__next_node = value
 
-    class SinglyLinkedList:
-        """Definition of singly linked list."""
+class SinglyLinkedList:
+    """Definition of singly linked list."""
 
-        def __init__(self):
-            """Initializes an instance of singlylinked list with empty list"""
-            self.head = None
+    def __init__(self):
+        """Initializes an instance of singlylinked list with empty list"""
+        self.head = None
 
-        def sorted_insert(self, value):
-            """Inserts a new Node into position in list
+    def sorted_insert(self, value):
+        """Inserts a new Node into position in list
 
-            Args:
-                value: integer representing data for newly added node
-            """
-            new_node = Node(value)
+        Args:
+            value: integer representing data for newly added node
+        """
+        new_node = Node(value)
 
-            if self.head is None or value < self.head.data:
-                new_node.next_node = self.head
-                self.head = new_node
-            else:
-                current = self.head
-                while current.next_node is not None and current.next_node.data < value:
-                    current = current.next_node
+        if self.head is None or value < self.head.data:
+            new_node.next_node = self.head
+            self.head = new_node
+        else:
+            current = self.head
+            while current.next_node is not None and current.next_node.data < value:
+                current = current.next_node
                 new_node.next_node = current.next_node
                 current.next_node = new_node
 
-        def __str__(self):
-            """String representation of linked list."""
-            result = ""
-            current = self.head
-            while current is not None:
-                result += str(curren.data) + "\n"
-                current = current.next_node
-            return result
+    def __str__(self):
+        """String representation of linked list."""
+        result = ""
+        current = self.head
+        while current is not None:
+            result += str(current.data) + "\n"
+            current = current.next_node
+        return result
