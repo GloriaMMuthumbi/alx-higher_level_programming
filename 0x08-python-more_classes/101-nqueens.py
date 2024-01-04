@@ -37,9 +37,12 @@ def print_solution(board):
     Args:
         board (list): chessboard
     """
-    for row in board:
-        print(" ".join(map(str, row)))
-    print()
+    solution = []
+    for row in range(len(board)):
+        for col in range(len(board[row])):
+            if board[row][col] == 1:
+                solution.append([row, col])
+    print(solution)
 
 
 def solve_nqueens(board, col, n):
