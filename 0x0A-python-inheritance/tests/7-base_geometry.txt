@@ -19,26 +19,28 @@ Test Cases:
 	Exception: area() is not implemented
 
 	>>> basegeo.integer_validator("name", "gloria")
-	Traceback (most recent call last)
+	Traceback (most recent call last):
 	...
 	TypeError: name must be an integer
 
 	>>> basegeo.integer_validator("position", {5,10})
-	Traceback (most recent call last)
+	Traceback (most recent call last):
 	...
 	TypeError: position must be an integer
 
 	>>> basegeo.integer_validator("position", False)
-        Traceback (most recent call last)
+        Traceback (most recent call last):
         ...
         TypeError: position must be an integer
 
 	>>> basegeo.integer_validator("position", [1])
-        Traceback (most recent call last)
+        Traceback (most recent call last):
         ...
         TypeError: position must be an integer
 
 	>>> basegeo.integer_validator("position", float('nan'))
-        Traceback (most recent call last)
-        ...
-        TypeError: position must be an integer
+	Traceback (most recent call last):
+	...
+	TypeError: position must be an integer
+
+	>>> basegeo.integer_validator("bignum",8399202993303094920293409240298409280958092747098280948230948209842098402984021098409832082084028)
