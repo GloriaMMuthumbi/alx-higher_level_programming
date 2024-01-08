@@ -28,6 +28,11 @@ Test Cases:
 	...
 	TypeError: position must be an integer
 
+	>>> basegeo.integer_validator("position", (2, 4))
+        Traceback (most recent call last):
+        ...
+        TypeError: position must be an integer
+
 	>>> basegeo.integer_validator("position", [1])
         Traceback (most recent call last):
         ...
