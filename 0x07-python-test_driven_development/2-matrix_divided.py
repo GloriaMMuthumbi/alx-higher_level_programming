@@ -31,7 +31,7 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError("division by zero")
 
     if not all(len(row) == len(matrix[0]) for row in matrix):
-        raise TypeError("Each row of the matrix must be the same size")
+        raise TypeError("matrix must be the same size")
 
     result_matrix = [[round(element / div, 2) for element in row]
             for row in matrix]

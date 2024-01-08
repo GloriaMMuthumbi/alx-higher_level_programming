@@ -76,3 +76,9 @@ TypeError: matrix must be a matrix (list of lists) of integers or floats
 Traceback (most recent call last):
 ...
 TypeError: div must be a number (integer or float)
+
+#matrix has different number of elements/size
+>>> matrix_divided([[3, 9], [12, 15, 3]], 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be the same size
