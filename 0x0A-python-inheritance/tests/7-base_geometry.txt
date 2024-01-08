@@ -54,3 +54,8 @@ Test Cases:
 	Traceback (most recent call last):
 	...
 	TypeError: answer must be an integer
+
+	>>> basegeo.integer_validator("answer", 2.4)
+        Traceback (most recent call last):
+        ...
+        TypeError: answer must be an integer
