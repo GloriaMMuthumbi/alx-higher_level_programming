@@ -1,0 +1,43 @@
+===========================
+How to use 1-my_list module
+===========================
+
+Usage
+=====
+
+Class importing:
+	>>> MyList = __import__('1-my_list').MyList
+
+Test cases:
+
+	>>> my_list = MyList()
+	>>> my_list
+	[]
+
+	>>> my_list.append(1)
+	>>> my_list.append(9)
+	>>> my_list.append(5)
+
+	>>> my_list
+	[1, 9, 5]
+
+	>>> my_list.print_sorted()
+	[1, 5, 9]
+
+	>>> my_list = MyList([9, 0, 2])
+	>>> my_list
+	[9, 0, 2]
+
+	>>> my_list.print_sorted()
+	[0, 2, 9]
+
+	>>> my_list = MyList("gloria")
+	>>> my_list
+	['g', 'l', 'o', 'r', 'i', 'a']
+
+	>>> my_list.print_sorted()
+	['a', 'g', 'i', 'l', 'o', 'r']
+
+	>>> empty_list = MyList()
+	>>> empty_list.print_sorted()
+	[]
