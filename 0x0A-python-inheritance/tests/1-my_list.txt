@@ -41,3 +41,7 @@ Test cases:
 	>>> empty_list = MyList()
 	>>> empty_list.print_sorted()
 	[]
+
+	>>> my_list = MyList([3])
+	>>> my_list.print_sorted()
+	[3]
