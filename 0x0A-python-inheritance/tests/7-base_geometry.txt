@@ -1,0 +1,29 @@
+=================================
+How to use 7-base_geometry module
+=================================
+
+Usage
+=====
+
+Importing class:
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Test Cases:
+	>>> basegeo = BaseGeometry()
+	>>> basegeo.integer_validator("int_1", 12)
+	>>> basegeo.integer_validator("length", 100)
+
+	>>> basegeo.area()
+	Traceback (most recent call last):
+	...
+	Exception: area() is not implemented
+
+	>>> basegeo.integer_validator("name", "gloria")
+	Traceback (most recent call last)
+	...
+	TypeError: name must be an integer
+
+	>>> basegeo.integer_validator("position", {5,10})
+	Traceback (most recent call last)
+	...
+	TypeError: position must be an integer
