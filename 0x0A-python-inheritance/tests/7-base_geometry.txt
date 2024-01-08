@@ -28,11 +28,6 @@ Test Cases:
 	...
 	TypeError: position must be an integer
 
-	>>> basegeo.integer_validator("position", False)
-        Traceback (most recent call last):
-        ...
-        TypeError: position must be an integer
-
 	>>> basegeo.integer_validator("position", [1])
         Traceback (most recent call last):
         ...
@@ -44,3 +39,13 @@ Test Cases:
 	TypeError: position must be an integer
 
 	>>> basegeo.integer_validator("bignum",8399202993303094920293409240298409280958092747098280948230948209842098402984021098409832082084028)
+
+	>>> basegeo.integer_validator()
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+	>>> basegeo.integer_validator("average")
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
