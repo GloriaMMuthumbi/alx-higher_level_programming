@@ -27,9 +27,13 @@ class BaseGeometry:
         """
         if name is None and value is None:
             raise TypeError("integer_validator() missing 2 required "
+
                             "positional arguments: 'name' and 'value'")
 
         if not isinstance(value, int):
+            raise TypeError(f'{name} must be an integer')
+
+        if isinstance(value, bool):
             raise TypeError(f'{name} must be an integer')
 
         if value <= 0:
