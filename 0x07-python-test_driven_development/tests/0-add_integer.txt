@@ -12,40 +12,51 @@ Usage
 Test cases for the add_integer function
 >>> add_integer = __import__('0-add_integer').add_integer
 
+	>>> add_integer(9, 4)
+	13
 
->>> add_integer(9, 4)
-13
+	>>> add_integer(-20, 32)
+	12
 
->>> add_integer(-20, 32)
-12
+	>>> add_integer(4.5, 1)
+	5
 
->>> add_integer(4.5, 1)
-5
+	>>> add_integer(5.2, 2.7)
+	7
 
->>> add_integer(5.2, 2.7)
-7
-
->>> add_integer(0, 0)
-0
+	>>> add_integer(0, 0)
+	0
 
 #default value for b
->>> add_integer(10)
-108
+	>>> add_integer(10)
+	108
 
 #non-int or float value for b
->>> add_integer(2, "7")
-Traceback (most recent call last):
-...
-TypeError: b must be an integer
+	>>> add_integer(2, "7")
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
 
 #non-int or float value for a
->>> add_integer("2", 7)
-Traceback (most recent call last):
-...
-TypeError: a must be an integer
+	>>> add_integer("2", 7)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
 
 #non-int or float value for a and b
->>> add_integer("2", "7")
-Traceback (most recent call last):
-...
-TypeError: a must be an integer
+	>>> add_integer("2", "7")
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+#Nan as an argument
+	>>> add_integer(float('nan'))
+	Traceback (most recent call last):
+	...
+	ValueError: cannot convert float Nan to integer
+
+#infinity as an argument
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
