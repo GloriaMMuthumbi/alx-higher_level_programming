@@ -69,3 +69,8 @@ Test Cases:
         Traceback (most recent call last):
         ...
         ValueError: distance must be greater than 0
+
+	>>> basegeo.integer_validator("position", None)
+        Traceback (most recent call last):
+        ...
+        TypeError: position must be an integer
