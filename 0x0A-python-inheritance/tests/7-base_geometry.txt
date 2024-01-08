@@ -27,3 +27,18 @@ Test Cases:
 	Traceback (most recent call last)
 	...
 	TypeError: position must be an integer
+
+	>>> basegeo.integer_validator("position", False)
+        Traceback (most recent call last)
+        ...
+        TypeError: position must be an integer
+
+	>>> basegeo.integer_validator("position", [1])
+        Traceback (most recent call last)
+        ...
+        TypeError: position must be an integer
+
+	>>> basegeo.integer_validator("position", float('nan'))
+        Traceback (most recent call last)
+        ...
+        TypeError: position must be an integer
