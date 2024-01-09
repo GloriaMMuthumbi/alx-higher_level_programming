@@ -3,67 +3,54 @@
 import sys
 
 
-def compute_metircs(lines):
+def print_statistics(file_size, status_codes):
     """
-    Computes metrics based on the input
+    print all metrics
 
     Args:
-        lines (list): list of lines of input
-
-    Returns:
-        dict: dictionary of metrics containing file size and status code
+        file_size (int): accumulated file size
+        status codes (dict): dictionary of status codes
     """
-    total_size = 0
-    status_counts = {
-            200: 0,
-            301: 0,
-            400: 0,
-            401: 0,
-            403: 0,
-            404: 0,
-            405: 0,
-            500: 0
-    }
-
-    for line in lines:
-        parts = line.split()
-        if len(parts) >= 8:
-            status_code = int(parts[7])
-            file_size = int(parts[8])
-            total_size += file_size
-            status_counts[status_code] += 1
-
-    return {'total_size': total_size, 'status_counts': status_counts}
-
-
-def print_statistics(metrics):
-    """
-    print staatistics based on computed metrics
-
-    Args:
-        metrics (dict): the metrics dictionary
-    """
-    print(f"Total file size: File size: {metrics['total_size']}")
-    for status_code in sorted(metrics['status_counts']):
-        count = metrics['status_counts'][status_code]
-        if count > 0:
-            print(f"{status_code}: {count}")
+    print("File size: {}".format(file_size))
+    for key in sorted(status_codes):
+        print("{}: {}".format(key, status_codes[key]))
 
 
 def main():
-    lines = []
+    file_size = 0
+    status_codes = {}
+    count = 0
+    valid = ['200', '301', '400', '401', '403', '404', '405', '500']
+
     try:
         for line in sys.stdin:
-            lines.append(line.strip())
+            if count == 10:
+                print_statistics(file_size, status_codes)
+                count = 1
+            else:
+                count += 1
 
-            if len(lines) % 10 == 0:
-                metrics = compute_metrics(lines)
-                print_statistics(metrics)
-                lines = []
+            line = line.split()
+
+            try:
+                file_size += int(line[-1])
+            except (IndexError, ValueError):
+                pass
+
+            try:
+                if line[-2] in valid:
+                    if status_codes.get(line[-2], -1) == -1:
+                        status_codes[line[-2]] = 1
+                    else:
+                        status_codes[line[-2]] += 1
+            except IndexError:
+                pass
+        print_statistics(file_size, status_codes)
 
     except KeyboardInterrupt:
-        metrics = comput_metrics(lines)
-        print_statistics(metrics)
+        print_statistics(file_size, status_codes)
+        raise
+
 
 if __name__ == "__main__":
     main()
