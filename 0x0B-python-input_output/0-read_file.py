@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-def read_file(filename""):
+def read_file(filename=""):
     """
     Read a text file (UTF-8) and print out it's contents to stdout
 
