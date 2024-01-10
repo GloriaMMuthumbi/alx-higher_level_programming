@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""contains test cases for max_intefer([..])"""
-
+"""Unitest for max_intefer([..])
+"""
 import unittest
 max_int = __import__('6-max_integer').max_integer
 
