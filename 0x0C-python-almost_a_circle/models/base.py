@@ -4,6 +4,7 @@ module that defines the base class
 """
 
 import json
+import csv
 
 
 class Base:
@@ -107,6 +108,50 @@ class Base:
                 content = file.read()
                 dictionaries = cls.from_json_string(content)
                 instances = [cls.create(**d) for d in dictionaries]
+                return instances
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        serializes list of objects to csv file
+
+        Args:
+            list_objs (list): list of instances to be serialized
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline='') as file:
+            csv_writer = csv.writer(file)
+            for obj in list_objs:
+                if cls.__name__ == "Rectangle":
+                    csv_writer.writerow
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        loads instances from csv file
+
+        Returns:
+            list: list of instances loaded from file
+        """
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, 'r') as file:
+                csv_reader = csv.reader(file)
+                instances = []
+                for row in csv_reader:
+                    if cls.__name__ == "Rectangle":
+                        instance = cls(
+                                int(row[0]), int(row[1]),
+                                int(row[2]), int(row[3]), int(row[4])
+                                )
+                    elif cls.__name__ == "Square":
+                        instance = cls(
+                                int(row[0]), int(row[1]),
+                                int(row[2]), int(row[3])
+                                )
+                    instances.append(instance)
                 return instances
         except FileNotFoundError:
             return []
