@@ -301,7 +301,7 @@ class TestSquare_x(unittest.TestCase):
             Square(5, -1, 0)
 
 
-class TestSquare_order_of_initialization(unittest.TestCase):
+class TestSqaure_initialization_order(unittest.TestCase):
     """Unittests for testing order of Square attribute initialization."""
 
     def test_size_before_x(self):
@@ -421,7 +421,7 @@ class TestSquare_stdout(unittest.TestCase):
             s.display(1)
 
 
-class TestSquare_update_args(unittest.TestCase):
+class TestSquare_args_update(unittest.TestCase):
     """Unittests for testing update args method of the Square class."""
 
     def test_update_args_zero(self):
@@ -533,7 +533,7 @@ class TestSquare_update_args(unittest.TestCase):
             s.update(89, 1, "invalid", "invalid")
 
 
-class TestSquare_update_kwargs(unittest.TestCase):
+class TestSquare_kwargs_update(unittest.TestCase):
     """Unittests for testing update kwargs method of Square class."""
 
     def test_update_kwargs_one(self):
