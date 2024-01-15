@@ -101,3 +101,14 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
                 self.id, self.__x, self.__y, self.__width, self.__height
                 )
+
+    def update(self, *args):
+        """
+        updates attribute the rectangle instance with arguments provided
+
+        Args:
+            *args: variable number of arguments ordered as (id, width, height, width, x, y)
+        """
+        arg_names = ["id", "width", "height", "x", "y"]
+        for i, arg in enumerate(args):
+            setattr(self, arg_names[i], arg)
