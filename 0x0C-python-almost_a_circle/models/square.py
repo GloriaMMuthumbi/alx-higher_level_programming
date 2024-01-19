@@ -18,6 +18,8 @@ class Square(Rectangle):
             id (int, optional): id of square. default value of None
         """
         super().__init__(size, size, x, y, id)
+        if not isinstance(size, (int, float)):
+            raise TypeError("size must be an integer")
 
     @property
     def size(self):

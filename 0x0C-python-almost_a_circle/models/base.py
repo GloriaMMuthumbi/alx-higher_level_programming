@@ -5,6 +5,7 @@ module that defines the base class
 
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -113,6 +114,22 @@ class Base:
             return []
 
     @classmethod
+    def save_to_file(cls, list_objs):
+        """
+        Write the json serialization of a list of dictionaries
+
+        Args:
+            list_objs (list): list of inherited base instances
+        """
+        filename = cls.__name__ + ".json"
+        with open(filename, 'w') as jsonfile:
+            if list_objs is None:
+                jsonfile.write("[]")
+            else:
+                list_dicts = [o.to_dictionary() for o in list_objs]
+                jsonfile.write(Base.to_json_string(list_dicts))
+
+    @classmethod
     def save_to_file_csv(cls, list_objs):
         """
         serializes list of objects to csv file
@@ -121,11 +138,17 @@ class Base:
             list_objs (list): list of instances to be serialized
         """
         filename = cls.__name__ + ".csv"
-        with open(filename, 'w', newline='') as file:
-            csv_writer = csv.writer(file)
-            for obj in list_objs:
+        with open(filename, "w", newline="") as csvfile:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
+            else:
                 if cls.__name__ == "Rectangle":
-                    csv_writer.writerow
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
@@ -141,17 +164,62 @@ class Base:
                 csv_reader = csv.reader(file)
                 instances = []
                 for row in csv_reader:
-                    if cls.__name__ == "Rectangle":
-                        instance = cls(
-                                int(row[0]), int(row[1]),
-                                int(row[2]), int(row[3]), int(row[4])
-                                )
-                    elif cls.__name__ == "Square":
-                        instance = cls(
-                                int(row[0]), int(row[1]),
-                                int(row[2]), int(row[3])
-                                )
-                    instances.append(instance)
+                    try:
+                        if cls.__name__ == "Rectangle":
+                            instance = cls(
+                                    int(row[0]), int(row[1]),
+                                    int(row[2]), int(row[3]), int(row[4])
+                                    )
+                        elif cls.__name__ == "Square":
+                            instance = cls(
+                                    int(row[0]), int(row[1]),
+                                    int(row[2]), int(row[3])
+                                    )
+                        instances.append(instance)
+                    except (ValueError, IndexError):
+                        print(f"Error creating instance from row:{row}")
                 return instances
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        screen = turtle.Screen()
+        screen.bgcolor("white")
+        screen.title("Drawing Rectangles and Squares")
+
+        pen = turtle.Turtle()
+        pen.spee(2)
+
+        for rect in list_rectangles:
+            Base._draw_rectangle(pen, rect)
+
+        for square in list_sqaures:
+            Base._draw_square(pen, square)
+
+        turtle.done()
+
+    @staticmethod
+    def _draw_rectangle(pen, rect):
+        pen.penup()
+        pen.goto(rect.x, rect.y)
+        pen.pendown()
+
+        pen.forward(rect.width)
+        pen.left(90)
+        pen.forward(rect.height)
+        pen.lef(90)
+        pen.forward(rect.width)
+        pen.left(90)
+        pen.forward(rect.height)
+        pen.lef(90)
+
+    @staticmethod
+    def _draw_rectangle(pen, square):
+        pen.penup()
+        pen.goto(square.x, square.y)
+        pen.pendown()
+
+        for _ in range(4):
+            pen.forward(square.size)
+            pen.left(90)
