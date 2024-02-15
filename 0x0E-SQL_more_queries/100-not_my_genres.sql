@@ -1,6 +1,6 @@
 -- uses hbtn_0d_tvshows to list all genres not linked to Dexter show
 SELECT DISTINCT `name`
-	FROM `tv_genres AS g
+	FROM `tv_genres` AS g
 		INNER JOIN `tv_show_genres` ASs
 		ON g.`id` = s.`genre_id`
 
