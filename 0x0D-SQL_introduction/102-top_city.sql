@@ -1,5 +1,5 @@
 -- Displays the top 3 of cities temperature during July and Argust ordered descending temperature
-SELECT cuty,
+SELECT city,
 	AVG(value) AS avg_temp
 FROM temperatures
 WHERE month = 7
