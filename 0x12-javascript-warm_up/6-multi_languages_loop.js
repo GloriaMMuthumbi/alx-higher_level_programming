@@ -7,5 +7,5 @@ const lines = [
 ];
 
 for (const line of lines) {
-	console.log(line);
+  console.log(line);
 }
