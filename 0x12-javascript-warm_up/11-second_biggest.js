@@ -12,5 +12,5 @@ function isSecondBiggest(numbers) {
   return (uniqueNums[1]);
 }
 
-const args = process .argv.slice(2).map(Number);
+const args = process.argv.slice(2).map(Number);
 console.log(isSecondBiggest(args));
