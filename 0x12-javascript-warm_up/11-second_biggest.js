@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-function isSecondBiggest(numbers) {
+function isSecondBiggest (numbers) {
   const sortedNums = numbers.sort((a, b) => b - a);
 
   const uniqueNums = [...new Set(sortedNums)];
