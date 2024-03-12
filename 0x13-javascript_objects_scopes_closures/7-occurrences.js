@@ -3,7 +3,7 @@ exports.nbOccurences = function (list, searchElement) {
   let count = 0;
   list.map(
     (x) => {
-      if (x == searchElement) {
+      if (x === searchElement) {
         count += 1;
         return 1;
       } else {
