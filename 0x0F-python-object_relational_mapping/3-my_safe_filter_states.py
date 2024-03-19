@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Lists all states in the database.
-Usage: ./0-select_states.py <mysql username> \
+Where the state matches the arguments
+Usage: ./3-my_safe_filter_states.py <mysql username> \
                             <mysql password> \
                             <database name>
 """
