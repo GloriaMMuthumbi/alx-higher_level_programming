@@ -14,4 +14,4 @@ if __name__ == "__main__":
 
     request = urllib.request.Request(url, data)
     with urllib.request.urlopen(request) as response:
-        print(reponse.read().decode("uft-8"))
+        print(response.read().decode("uft-8"))
