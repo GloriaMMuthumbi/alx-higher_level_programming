@@ -4,7 +4,7 @@ const url = 'http://swapi.co/api/films/';
 let id = parseInt(process.argv[2], 10);
 let characters = [];
 
-requests(url, function (err, response, body) {
+request(url, function (err, response, body) {
   if (err == null) {
     const resp = JSON.parse(body);
     const results = resp.results;
@@ -13,7 +13,7 @@ requests(url, function (err, response, body) {
     } else {
       id -= 3;
     }
-    for (let i = 0; i < results.lenght; i++) {
+    for (let i = 0; i < results.length; i++) {
       if (results[i].episode_id === id) {
         characters = results[i].characters;
         break;
