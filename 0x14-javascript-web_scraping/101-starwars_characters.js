@@ -9,7 +9,7 @@ requests(url, function (err, response, body) {
     const resp = JSON.parse(body);
     const results = resp.results;
     if (id < 4) {
-      if += 3;
+      id += 3;
     } else {
       id -= 3;
     }
