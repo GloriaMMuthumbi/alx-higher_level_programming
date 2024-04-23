@@ -8,7 +8,7 @@ function MakeRequest (url) {
     request(url, (error, response, body) => {
       if (!error && response.statusCode === 200) {
         resolve(body);
-      { else {
+      } else {
         reject(error);
       }
     });
